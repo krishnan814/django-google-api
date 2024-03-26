@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Login Page</title>
+            <style>
+                body {
+                    font-family: Arial, sans-serif;
+                    margin: 0;
+                    padding: 0;
+                    padding-top: 180px;
+                    
+                        height: 200px;
+                        background-color: red; /* For browsers that do not support gradients */
+                        background-image: linear-gradient(to right, rgb(4, 52, 107) , rgb(246, 247, 243));
+                      
+                }
+                
+                .form {
+                    margin-bottom: 20px;
+                }
+                .form-group label {
+                    display: block;
+                    margin-bottom: 5px;
+                }
+                .form-group input[type="text"],
+                .form-group input[type="password"] {
+                    width: 100%;
+                    padding: 10px;
+                    border: 1px solid #ccc;
+                    border-radius: 3px;
+                    box-sizing: border-box;
+                }
+                .form button {
+                    width: 100%;
+                    padding: 100px;
+                    background-color: #007bff;
+                    border: none;
+                    border-radius: 3px;
+                    color: #fff;
+                    cursor: pointer;
+                    
+                    
+                }
+                .form-group button:hover {
+                    background-color: #0056b3;
+                }
+
+
+                 .center {
+                         margin: 0;
+                         
+                        position: absolute;
+                         top: 50%;
+                         left: 50%;
+                        -ms-transform: translate(-50%, -50%);
+                        transform: translate(-50%, -50%);
+                        }
+                   button{
+                    padding: 10px;
+                   }     
+            </style>
+        
+</head>
+<body>
+    {% load socialaccount %}
+
+
+
+    <h1 style="text-align: center;">
+      Welcome to my page <h1>  <h2 style="text-align: center;">Please login with your google account using below button </h2>
+        
+            <div class="center">
+                <a href="{%provider_login_url 'google'%}?next=/"><button type="button">Login</button></a>
+            </div>
+          
+
+    {% if user.is_authenitcated %}
+    <p>you are signed in as{{uses.email}}</p>
+    <a href="logout">Logout</a>
+    {% endif %}
+
+</body>
+    
+</html>
